@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import Zoom from '@mui/material/Zoom';
 import Fab from '@material-ui/core/Fab';
 import { v4 as uuidv4 } from 'uuid'; // to set unique id to all note
 
@@ -9,6 +10,13 @@ function CreateArea(props) {
         title: "",
         content: "",
     })
+
+    const [isPress, setIsPress] = useState(false); // Default input settings
+    const extendTextBox = () => {
+        setIsPress(curConditions => {
+            return !curConditions // Revert current conditions
+        })
+    }
 
     const handleType = (e) => {
         // When user entering text box
@@ -54,19 +62,24 @@ function CreateArea(props) {
                     placeholder="Title" 
                     value={note.title}
                     onChange={handleType}
+                    onClick={extendTextBox}
                 />
-                <textarea 
-                    name="content" 
-                    placeholder="Take a note..." 
-                    rows="3"
-                    value={note.content} 
-                    onChange={handleType}
-                />
-                <Fab 
-                    onClick={addNote}
-                >
-                    <AddBoxIcon />
-                </Fab>
+                {isPress && 
+                // When isPress is true render textarea
+                    <textarea 
+                        name="content" 
+                        placeholder="Take a note..." 
+                        rows="3"
+                        value={note.content} 
+                        onChange={handleType}
+                />}
+                <Zoom in={isPress}>
+                    <Fab 
+                        onClick={addNote}
+                        >
+                        <AddBoxIcon />
+                    </Fab>
+                </Zoom>              
             </form>
         </div>
     );
