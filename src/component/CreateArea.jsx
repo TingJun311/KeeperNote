@@ -1,5 +1,7 @@
 
 import React, { useState } from "react";
+import AddBoxIcon from '@material-ui/icons/AddBox';
+import Fab from '@material-ui/core/Fab';
 import { v4 as uuidv4 } from 'uuid'; // to set unique id to all note
 
 function CreateArea(props) {
@@ -42,6 +44,7 @@ function CreateArea(props) {
     return (
         <div>
             <form
+                className="create-note"
                 onSubmit={(e) => {
                     // Prevent the page refresh when the form submit
                     e.preventDefault();
@@ -59,9 +62,11 @@ function CreateArea(props) {
                     value={note.content} 
                     onChange={handleType}
                 />
-                <button 
+                <Fab 
                     onClick={addNote}
-                >Add</button>
+                >
+                    <AddBoxIcon />
+                </Fab>
             </form>
         </div>
     );
