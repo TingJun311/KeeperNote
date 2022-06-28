@@ -5,14 +5,17 @@ import Note from "./component/Note";
 import CreateArea from "./component/CreateArea";
 
 function App() {
-    const [notes, setNotes] = useState([{}])
+    const [notes, setNotes] = useState([{}]) // An object inside an array
 
     const handleAddNote = (newNote) => {
+        // When the add button was clicked 
+        // Get the prevNotes then add new notes
         setNotes(prevNotes => {
             return [...prevNotes, newNote]
         })
     }
     const handleDelete = (noteId) => {
+        // When the delete button was pressed
         setNotes(prevNotes => {
             return prevNotes.filter(note => {
                 return note.id !== noteId // Return an array of objects without the selected id
@@ -27,6 +30,7 @@ function App() {
             onAdd={handleAddNote}
         />
         {notes.map(note => {
+            // Map through the notes array then render dynamically
             const { id, title, content } = note;
             return (
                 id &&
