@@ -1,11 +1,12 @@
 import React from "react";
-import ReactDom from "react-dom";
+import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 
-export default function Header() {
-    const title = "Keeper";
+function Header() {
     return (
         <header>
-            <h1>{title}</h1>
+            <h1><StickyNote2Icon /> Keeper</h1>
         </header>
     );
 }
+
+export default Header;

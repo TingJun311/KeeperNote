@@ -1,12 +1,20 @@
 import React from "react";
-import ReactDom from "react-dom";
+import DeleteIcon from '@material-ui/icons/Delete';
+import Fab from '@material-ui/core/Fab';
 
-export default function Note(props) {
+function Note(props) {
     return (
         <div className="note">
-            <p>{props.key}</p>
             <h1>{props.title}</h1>
             <p>{props.content}</p>
+            <Fab onClick={() => {
+                const { id } = props; // Get the id only when delete was pressed
+                props.onDelete(id) // Pass in the id 
+            }}>
+                <DeleteIcon />
+            </Fab>
         </div>
     );
 }
+
+export default Note;
