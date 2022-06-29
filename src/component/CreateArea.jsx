@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import Zoom from '@mui/material/Zoom';
 import Fab from '@material-ui/core/Fab';
@@ -40,7 +40,7 @@ function CreateArea(props) {
         if (title || content) {
             // Only trigger props functions when either title or content its not empty
             props.onAdd(note);
-
+            extendTextBox();
             // Once add reset the input field
             setNotes({
                 title: "",
