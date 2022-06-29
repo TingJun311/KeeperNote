@@ -4,7 +4,7 @@ import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 function Header() {
     return (
         <header>
-            <h1><StickyNote2Icon /> Keeper</h1>
+            <h1><StickyNote2Icon /> Your notes </h1>
         </header>
     );
 }
