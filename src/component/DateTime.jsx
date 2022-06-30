@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 export default function DateTime () {
+    // This component allow to the get and render latest time 
 
     const dateTimes = new Date();
 
@@ -11,6 +12,7 @@ export default function DateTime () {
     });
     
     const setDate = () => {
+        // To set the new time and date
         setDateTime(() => {
             return ({
                 date: new Date().toLocaleDateString(),
@@ -20,6 +22,7 @@ export default function DateTime () {
     };
 
     setInterval(setDate ,1000)
+    // Set the time every 1000 milles second = 1 sec
 
     return (
         <>

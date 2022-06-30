@@ -4,6 +4,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DoneIcon from "@mui/icons-material/Done";
 
 const LOCAL_STORAGE_KEY_NAME = "userName.notes";
+
 export default function Title() {
     const [isName, setIsName] = useState({});
     const [gotName, setGotName] = useState(false);
@@ -33,7 +34,7 @@ export default function Title() {
     };
 
     const setEditName = () => {
-        setGotName((prevCondition) => {
+        setGotName(prevCondition => {
             return !prevCondition;
         });
     };
