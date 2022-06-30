@@ -128,3 +128,8 @@ form.create-note button {
     color: #fff;
     box-shadow: 0px 1px 3px black;
 }
+
+.dateTime {
+  color: grey;
+  font-size: 2px;
+}

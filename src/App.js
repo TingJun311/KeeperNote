@@ -48,7 +48,7 @@ function App() {
             <CreateArea onAdd={handleAddNote} />
             {notes.map((note) => {
                 // Map through the notes array then render dynamically
-                const { id, title, content } = note;
+                const { id, title, content, addDate, addTime } = note;
                 return (
                     id && (
                         <Note
@@ -56,6 +56,8 @@ function App() {
                             id={id}
                             title={title}
                             content={content}
+                            time={addTime}
+                            date={addDate}
                             onDelete={handleDelete}
                         />
                     )

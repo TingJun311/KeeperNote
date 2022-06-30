@@ -29,6 +29,8 @@ function CreateArea(props) {
                 id: uuidv4(),
                 [name]: value, // Set the properties depending on the name
                 // That is why the name in the component are very important
+                addDate: new Date().toLocaleDateString(),
+                addTime: new Date().toLocaleTimeString(),
             })
         })
     }
