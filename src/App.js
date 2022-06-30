@@ -11,19 +11,31 @@ function App() {
     const [notes, setNotes] = useState([{}]); // An object inside an array
 
     useEffect(() => {
-        // Trigger this function every time the states rendered
-        // Get the item from local storage
-        const getNotes = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-        if (getNotes) {
-            setNotes(getNotes);
-        }
-    }, []);
-
-    useEffect(() => {
         // If the notes value changes, only trigger this useEffect
         // To set to local storage
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(notes));
+        const setDate = async () => {
+            await localStorage.setItem(
+                LOCAL_STORAGE_KEY,
+                JSON.stringify(notes)
+            );
+        };
+        setDate();
     }, [notes]);
+
+    useEffect(() => {
+        // Trigger this function every time the states rendered
+        // Get the item from local storage
+        const fetchNotes = async () => {
+            const getNotes = await JSON.parse(
+                localStorage.getItem(LOCAL_STORAGE_KEY)
+            );
+            if (getNotes) {
+                setNotes(getNotes);
+            }
+        };
+
+        fetchNotes();
+    }, []);
 
     const handleAddNote = (newNote) => {
         // When the add button was clicked

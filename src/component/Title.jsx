@@ -6,22 +6,33 @@ import DoneIcon from "@mui/icons-material/Done";
 const LOCAL_STORAGE_KEY_NAME = "userName.notes";
 
 export default function Title() {
-    const [isName, setIsName] = useState({});
+    const [isName, setIsName] = useState({
+        userName: "",
+    });
     const [gotName, setGotName] = useState(false);
 
     useEffect(() => {
-        const userName = JSON.parse(
-            localStorage.getItem(LOCAL_STORAGE_KEY_NAME)
-        );
-        setIsName(userName);
-        setGotName(() => {
-            return userName.userName ? false : true;
-        });
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_NAME, JSON.stringify(isName));
+        const setData = async () => {
+            await localStorage.setItem(
+                LOCAL_STORAGE_KEY_NAME,
+                JSON.stringify(isName)
+            );
+        };
+        setData();
     }, [isName]);
+    
+    useEffect(() => {
+        const fetchNotes = async () => {
+            const userName = await JSON.parse(
+                localStorage.getItem(LOCAL_STORAGE_KEY_NAME)
+            );
+            setIsName(userName);
+            setGotName(() => {
+                return userName.userName ? false : true;
+            });
+        };
+        fetchNotes();
+    }, []);
 
     const editName = (e) => {
         const { value, name } = e.target;
@@ -34,7 +45,7 @@ export default function Title() {
     };
 
     const setEditName = () => {
-        setGotName(prevCondition => {
+        setGotName((prevCondition) => {
             return !prevCondition;
         });
     };
