@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/KeeperNote/static/js/main.b48501fe.js",
+    "main.js": "/KeeperNote/static/js/main.2bfb0a40.js",
     "index.html": "/KeeperNote/index.html",
-    "main.b48501fe.js.map": "/KeeperNote/static/js/main.b48501fe.js.map"
+    "main.2bfb0a40.js.map": "/KeeperNote/static/js/main.2bfb0a40.js.map"
   },
   "entrypoints": [
-    "static/js/main.b48501fe.js"
+    "static/js/main.2bfb0a40.js"
   ]
 }
