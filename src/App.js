@@ -3,6 +3,7 @@ import Header from "./component/Header";
 import Footer from "./component/Footer";
 import Note from "./component/Note";
 import CreateArea from "./component/CreateArea";
+import Title from "./component/Title";
 
 const LOCAL_STORAGE_KEY = "noteK.app";
 
@@ -43,6 +44,7 @@ function App() {
     return (
         <div>
             <Header />
+            <Title />
             <CreateArea onAdd={handleAddNote} />
             {notes.map((note) => {
                 // Map through the notes array then render dynamically

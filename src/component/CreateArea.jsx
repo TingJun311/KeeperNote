@@ -9,7 +9,7 @@ function CreateArea(props) {
     const [note, setNotes] = useState({
         title: "",
         content: "",
-    })
+    });
 
     const [isPress, setIsPress] = useState(false); // Default input settings
     const extendTextBox = () => {
