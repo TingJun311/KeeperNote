@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.b48501fe.js",
-    "index.html": "/index.html",
-    "main.b48501fe.js.map": "/static/js/main.b48501fe.js.map"
+    "main.js": "/KeeperNote/static/js/main.b48501fe.js",
+    "index.html": "/KeeperNote/index.html",
+    "main.b48501fe.js.map": "/KeeperNote/static/js/main.b48501fe.js.map"
   },
   "entrypoints": [
     "static/js/main.b48501fe.js"
